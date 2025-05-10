@@ -1,0 +1,66 @@
+.nothing-message {
+  text-align: center;
+  margin: 2rem auto;
+  color: tomato;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+
+  ul {
+    width: 85%;
+  }
+
+  .cart-details {
+    width: 85%;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .cart-details h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #0077ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #005fcc;
+  }
+
+  button:first-child {
+    background-color: #ff4444;
+  }
+
+  button:first-child:hover {
+    background-color: #cc0000;
+  }
+}

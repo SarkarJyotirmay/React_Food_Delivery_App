@@ -1,0 +1,71 @@
+.footer {
+  background-color: #222;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  padding-bottom: 1rem;
+}
+
+.logoSection h2 {
+  color: tomato;
+  font-size: 2rem;
+}
+
+.linksSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.linksSection li {
+  margin: 0.5rem 0;
+  cursor: pointer;
+   
+  &:hover{
+    color: rgb(0, 119, 255);
+  }
+}
+
+.contactSection p,
+.linksSection li {
+  font-size: 0.95rem;
+}
+
+.socialSection .icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.socialSection svg {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.socialSection svg:hover {
+  color: tomato;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.footer p {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #ccc;
+}

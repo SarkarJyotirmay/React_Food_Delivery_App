@@ -1,0 +1,22 @@
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+.food-list-heading {
+  padding-top: 2rem;
+  grid-column: 1 / -1;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: tomato;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.selected-category{
+  color: #3bfd00;
+}

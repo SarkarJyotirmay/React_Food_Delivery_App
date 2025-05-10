@@ -1,0 +1,74 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    
+    .logo{
+        color: rgb(255, 42, 4);
+    }
+
+    ul{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: rgb(45, 44, 44);
+
+        li:hover{
+            color: black;
+        }
+
+        .cart{
+            position: relative;
+
+            .dot{
+                position: absolute;
+                top: -0.3rem;
+                right: -0.2rem;
+                height: 0.5rem;
+                width: 0.5rem;
+                border-radius: 50%;
+                background-color: tomato;
+            }
+            .hide{
+                display: none;
+            }
+        }
+
+                
+        .sign-up{
+            border: 2px solid rgb(231, 126, 40);
+            padding: 0.3rem 0.5rem;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .sign-up:hover{
+            background-color: rgb(247, 204, 86);
+            color: white;
+        }
+
+        .active{
+            padding-bottom: 2px;
+            border-bottom: 1px solid ;
+        }
+
+        .sign-out-btn{
+            width: 100%;
+            height: 100%;
+            padding: 0.3rem 0.5rem;
+            border-radius: 1rem;
+            border: none;
+            outline: none;
+            background-color: #d589267e;
+            cursor: pointer;
+
+            &:hover{
+                color: white
+            }
+        }
+    }
+}

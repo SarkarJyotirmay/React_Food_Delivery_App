@@ -12,7 +12,7 @@ function Cart() {
   },[cart])
 
   function calculateTotal(cart){
-    return cart.reduce((acc,curr)=>acc + curr.price, 0)
+    return cart.reduce((acc,curr)=>acc + (curr.price*curr.quantity), 0)
   }
 
   if(cart.length === 0){
@@ -27,7 +27,7 @@ function Cart() {
     {
       cart.length > 0 &&
     <>
-    <h1 className={styles["nothing-message"]}>Your Orders are On The Way</h1>
+    <h1>Your orders are on the way</h1>
     <ul>
       {
       cart.map((item)=>{

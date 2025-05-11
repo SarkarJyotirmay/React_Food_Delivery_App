@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const RazorPayButton = () => {
   const cart = useSelector((state) => state.cartReducers);
   const amount = () => {
-    return cart.reduce((acc, curr) => acc + curr.price, 0);
+    return cart.reduce((acc, curr) => acc + curr.price*curr.quantity, 0);
   };
   const handlePayment = useCallback(() => {
     const script = document.createElement("script");

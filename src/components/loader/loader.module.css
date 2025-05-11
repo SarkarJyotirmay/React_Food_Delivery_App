@@ -6,11 +6,12 @@
   --olive: #1D1D1D;
 }
 
+
 .pizzaLoader {
   position: relative;
   width: 200px;
   height: 200px;
-  margin: auto;
+  margin: 2rem auto;
   margin-top: 15%;
   border-radius: 50%;
 }

@@ -67,7 +67,7 @@ function Header() {
           </li>
           <li className={styles["sign-up"]}>
             {user ? (
-              <button className={styles["sign-out-btn"]} onClick={handleLogOut}>Sign Out</button>
+              <p  onClick={handleLogOut}>Sign Out</p>
             ) : (
               <Link to="/signup">Sign Up</Link>
             )}

@@ -1,0 +1,39 @@
+.findRecipeContainer {
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+.findRecipeTitle {
+  color: tomato;
+  margin-bottom: 1rem;
+}
+
+.findRecipeInput {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.findRecipeButton {
+  background: #6b69b2;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.findRecipeButton:disabled {
+  background: #b0b0b0;
+}
+
+.findRecipeResult {
+  margin-top: 2rem;
+  white-space: pre-wrap;
+  background: #fefefe;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

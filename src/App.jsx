@@ -5,28 +5,37 @@ import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import Contact from './pages/Contact/Contact'
 import Cart from './pages/Cart/Cart'
-import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import NotFound from './pages/NotFound/NotFound'
-import Menu from './pages/Menu/Menu'
 import SignUp from './pages/SignUp/SignUp'
 import Login from './pages/Login/Login'
 import useAuthListener from './auth/useAuthListener'
 import ProtectedRoute from './auth/ProtectedRoute'
+import FindRecipe from './pages/aiRecipie/FindRecipie'
 const router = createBrowserRouter([{
   path: "/",
   element: <First />,
   children: [
     {
       index: true,
-      element: <Home />
+      element: (
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      )
     },
     {
       path: "/about",
-      element: <About />
+      element: (
+        <ProtectedRoute>
+          <About />
+        </ProtectedRoute>
+      )
     }, 
     {
       path: "/contact",
-      element: <Contact />
+      element: <ProtectedRoute>
+        <Contact />
+      </ProtectedRoute>
     },
     {
       path: "/cart",
@@ -37,8 +46,8 @@ const router = createBrowserRouter([{
       )
     },
     {
-      path: "/placeorder",
-      element: <PlaceOrder />
+      path: "findrecipie",
+      element: <FindRecipe />
     },
     {
       path: "/signup",

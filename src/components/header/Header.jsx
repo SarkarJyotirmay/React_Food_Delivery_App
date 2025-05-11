@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 // icons
 import { IoIosSearch } from "react-icons/io";
+import { LuShoppingBag } from "react-icons/lu";
+import { HiMenu, HiX } from "react-icons/hi"; // for hamburger and close icon
 
 import { assets } from "../../assets/assets";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +18,8 @@ const auth = getAuth(app)
 
 function Header() {
   const [menu, setmenu] = useState("Home"); // for having the active link styling
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // state for hamburger menu
+  
   const cart = useSelector((state)=>state.cartReducers);
   const { user, loading } = useSelector((state) => state.authReducers);
   const dispatch = useDispatch()
@@ -27,39 +31,37 @@ function Header() {
     auth.signOut();
     navigate("/login")
     dispatch(clearUser())
-
   }
 
   return (
-    <>
+     <>
       <nav className={styles.header}>
         <Link to={"/"}><h1 className={styles.logo}>DineDash</h1></Link>
 
-        <ul>
-          <li
-            onClick={() => setmenu("Home")}
-            className={`${menu === "Home" ? styles.active : ""}`}
-          >
-            <Link to="/">Home</Link>
+        {/* Hamburger Toggle */}
+        <div className={styles.hamburger} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          {mobileMenuOpen ? <HiX className={styles.cross} size={25} /> : <HiMenu size={25} />}
+        </div>
+
+         <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.showMenu : ""}`}>
+        {/* Navigation Links */}
+        <ul className={styles.navLinks}>
+          <li onClick={() => setmenu("Home")}>
+            <Link className={menu === "Home" ? styles.active : ""} to="/">Home</Link>
           </li>
-          <li
-            onClick={() => setmenu("About")}
-            className={`${menu === "About" ? styles.active : ""}`}
-          >
-            <Link to="/about">About</Link>
+          <li onClick={() => setmenu("About")}>
+            <Link className={menu === "About" ? styles.active : ""} to="/about">About</Link>
           </li>
-          <li
-            onClick={() => setmenu("Contact")}
-            className={`${menu === "Contact" ? styles.active : ""}`}
-          >
-            <Link to="/contact">Contact</Link>
+          <li onClick={() => setmenu("Contact")}>
+            <Link className={menu === "Contact" ? styles.active : ""} to="/contact">Contact</Link>
           </li>
         </ul>
 
-        <ul>
+        {/* Right Section */}
+        <ul className={styles.navActions}>
           <li className={styles.cart}>
             <Link to="/cart">
-              <img src={assets.basket_icon} alt="" />
+              <LuShoppingBag className={styles["cart-logo"]}/>
             </Link>
             <div className={`${styles.dot} ${cart.length === 0 ? styles.hide : ""}`}></div>
           </li>
@@ -71,6 +73,7 @@ function Header() {
             )}
           </li>
         </ul>
+        </div>
       </nav>
     </>
   );

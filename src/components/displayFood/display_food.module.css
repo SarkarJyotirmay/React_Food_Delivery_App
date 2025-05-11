@@ -20,3 +20,27 @@
 .selected-category{
   color: #3bfd00;
 }
+
+.search {
+  width: 85%;
+  display: block;
+  margin: auto !important;
+  max-width: 500px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+}
+
+.search::placeholder {
+  color: #999;
+}
+
+.search:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.2);
+}

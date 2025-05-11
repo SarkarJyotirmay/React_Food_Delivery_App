@@ -11,6 +11,11 @@ import menu_6 from './menu_6.png'
 import menu_7 from './menu_7.png'
 import menu_8 from './menu_8.png'
 import menu_9 from "./menu_9.jpg"
+import menu_10 from "./menu_10.webp"
+import menu_11 from "./menu_11.avif"
+import menu_12 from "./menu_12.webp"
+import menu_13 from "./menu_13.avif"
+
 
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
@@ -48,6 +53,23 @@ import food_33 from "./food_33.avif"
 import food_34 from "./food_34.webp"
 import food_35 from "./food_35.avif"
 import food_36 from "./food_36.avif"
+import food_37 from "./food_37.webp"
+import food_38 from "./food_38.avif"
+import food_39 from "./food_39.webp"
+import food_40 from "./food_40.avif"
+import food_41 from "./food_41.webp"
+import food_42 from "./food_42.webp"
+import food_43 from "./food_43.webp"
+import food_44 from "./food_44.webp"
+import food_45 from "./food_45.webp"
+import food_46 from "./food_46.webp"
+import food_47 from "./food_47.avif"
+import food_48 from "./food_48.webp"
+import food_49 from "./food_49.avif"
+import food_50 from "./food_50.avif"
+import food_51 from "./food_51.webp"
+
+
 
 import add_icon_white from './add_icon_white.png'
 import add_icon_green from './add_icon_green.png'
@@ -124,22 +146,22 @@ export const menu_list = [
       menu_name: "Pizza",
       menu_image: menu_9
     },
-    // {
-    //   menu_name: "Burger",
-    //   menu_image: menu_10
-    // },
-    // {
-    //   menu_name: "Soup",
-    //   menu_image: menu_11
-    // },
-    // {
-    //   menu_name: "Fries",
-    //   menu_image: menu_12
-    // },
-    // {
-    //   menu_name: "Biryani",
-    //   menu_image: menu_13
-    // },
+    {
+      menu_name: "Burger",
+      menu_image: menu_10
+    },
+    {
+      menu_name: "Soup",
+      menu_image: menu_11
+    },
+    {
+      menu_name: "Fries",
+      menu_image: menu_12
+    },
+    {
+      menu_name: "Biryani",
+      menu_image: menu_13
+    },
     // {
     //   menu_name: "Curry",
     //   menu_image: menu_14
@@ -417,5 +439,129 @@ export const food_list = [
     price: 13,
     description: "Loaded with fresh vegetables, olives, and melted cheese.",
     category: "Pizza"
+},
+{
+    _id: "37",
+    name: "Classic Chiken Burger",
+    image: food_37,
+    price: 10,
+    description: "Juicy beef patty with lettuce, tomato, onions, and special sauce.",
+    category: "Burger"
+},
+{
+    _id: "38",
+    name: "Cheese Burst Burger",
+    image: food_38,
+    price: 11,
+    description: "Double cheese layers with a crispy patty and fresh veggies.",
+    category: "Burger"
+},
+{
+    _id: "39",
+    name: "Spicy Chicken Burger",
+    image: food_39,
+    price: 12,
+    description: "Grilled chicken with spicy mayo, jalapeños, and lettuce.",
+    category: "Burger"
+},
+{
+    _id: "40",
+    name: "Veggie Supreme Burger",
+    image: food_40,
+    price: 9,
+    description: "Crispy veggie patty with cheese, lettuce, and tangy sauce.",
+    category: "Burger"
+},
+{
+    _id: "41",
+    name: "BBQ Bacon Burger",
+    image: food_41,
+    price: 13,
+    description: "Smoky BBQ sauce, crispy bacon, cheddar cheese, and beef patty.",
+    category: "Burger"
+},
+{
+    _id: "42",
+    name: "Tomato Basil Soup",
+    image: food_42,
+    price: 7,
+    description: "Creamy tomato soup blended with fresh basil and herbs.",
+    category: "Soup"
+},
+{
+    _id: "43",
+    name: "Chicken Noodle Soup",
+    image: food_43,
+    price: 8,
+    description: "Classic soup with tender chicken, noodles, and vegetables.",
+    category: "Soup"
+},
+{
+    _id: "44",
+    name: "Cream of Mushroom Soup",
+    image: food_44,
+    price: 7,
+    description: "Rich and creamy soup made with fresh mushrooms and cream.",
+    category: "Soup"
+},
+{
+    _id: "45",
+    name: "Hot and Sour Soup",
+    image: food_45,
+    price: 8,
+    description: "Spicy and tangy soup with tofu, mushrooms, and bamboo shoots.",
+    category: "Soup"
+},
+{
+    _id: "46",
+    name: "Vegetable Clear Soup",
+    image: food_46,
+    price: 6,
+    description: "Light and healthy soup with assorted fresh vegetables.",
+    category: "Soup"
+},
+{
+    _id: "47",
+    name: "Classic French Fries",
+    image: food_47,
+    price: 5,
+    description: "Crispy golden fries seasoned with a pinch of salt.",
+    category: "Fries"
+},
+{
+    _id: "48",
+    name: "Cheesy Loaded Fries",
+    image: food_48,
+    price: 7,
+    description: "Fries topped with melted cheese, jalapeños, and special sauce.",
+    category: "Fries"
+},
+{
+    _id: "49",
+    name: "Chicken Biryani",
+    image: food_49,
+    price: 12,
+    description: "Aromatic basmati rice cooked with tender chicken and spices.",
+    category: "Biryani"
+},
+{
+    _id: "50",
+    name: "Veg Biryani",
+    image: food_50,
+    price: 10,
+    description: "Flavorful rice dish with mixed vegetables and traditional herbs.",
+    category: "Biryani"
+},
+{
+    _id: "51",
+    name: "Mutton Biryani",
+    image: food_51,
+    price: 14,
+    description: "Succulent mutton pieces slow-cooked with saffron rice and spices.",
+    category: "Biryani"
 }
+
+
+
+
 ]

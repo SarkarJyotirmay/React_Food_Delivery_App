@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAuth } from "firebase/auth";
 import { app } from "../../auth/firebase";
 import { clearUser } from "../../store/slices/authSlice";
+import { toast } from "react-toastify";
 
 const auth = getAuth(app)
 
@@ -30,8 +31,22 @@ function Header() {
   function handleLogOut (){
     auth.signOut();
     navigate("/login")
+    notify()
     dispatch(clearUser())
   }
+
+  const notify = () =>
+       toast("Logged Out Successfully !", {
+         position: "top-center",
+         type: "error",
+         autoClose: 5000,
+         hideProgressBar: false,
+         closeOnClick: false,
+         pauseOnHover: true,
+         draggable: true,
+         progress: undefined,
+         theme: "light",
+       });
 
   return (
      <>

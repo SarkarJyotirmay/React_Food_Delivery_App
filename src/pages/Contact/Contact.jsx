@@ -1,20 +1,8 @@
 import { useForm } from "react-hook-form";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import {  toast } from "react-toastify";
 import styles from "./Contact.module.css";
 
-const notify = () =>
-  toast("Form Submitted", {
-    position: "top-center",
-    type: "success",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: false,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  });
+
 
 function Contact() {
   const {
@@ -46,6 +34,19 @@ function Contact() {
       alert("An error occurred while submitting the form.");
     }
   };
+
+  const notify = () =>
+  toast("Form Submitted", {
+    position: "top-center",
+    type: "success",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });
 
   return (
     <div className={styles.container}>
@@ -95,9 +96,10 @@ function Contact() {
         </button>
       </form>
 
-      <ToastContainer />
+      
     </div>
   );
 }
 
 export default Contact;
+ 

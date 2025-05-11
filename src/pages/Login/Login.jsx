@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { app } from "../../auth/firebase";
 import styles from "./Login.module.css";
+import { toast } from "react-toastify";
 
 const auth = getAuth(app);
 
@@ -30,11 +31,25 @@ function Login() {
       );
       const user = userDetails.user;
       setMessage({ type: "success", text: "Login successful!" });
+      notify()
       navigate("/"); // Redirect after login
     } catch (error) {
       setMessage({ type: "error", text: error.message });
     }
   }
+
+  const notify = () =>
+       toast ("Logged-in Successfully !", {
+         position: "top-center",
+         type: "success",
+         autoClose: 5000,
+         hideProgressBar: false,
+         closeOnClick: false,
+         pauseOnHover: true,
+         draggable: true,
+         progress: undefined,
+         theme: "light",
+       });
 
   return (
     <div className={styles.container}>

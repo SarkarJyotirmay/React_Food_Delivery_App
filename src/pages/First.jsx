@@ -3,6 +3,9 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import { Outlet, useLocation } from "react-router-dom";
 import Loader from "../components/loader/Loader";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function First() {
   const [loading, setLoading] = useState(true)
@@ -21,6 +24,7 @@ function First() {
       <Header />
       {loading ? <Loader /> : <Outlet />}
       <Footer />
+      <ToastContainer />
     </>
   );
 }

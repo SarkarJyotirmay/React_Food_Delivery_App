@@ -3,6 +3,7 @@ import { app } from "../../auth/firebase";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import styles from "./sign_up.module.css"
+import { toast } from "react-toastify";
 
 const auth = getAuth(app);
 
@@ -29,11 +30,25 @@ function SignUp() {
         form.password
     )
     const user = userDetails.user
+    notify()
     setMessage({ type: "success", text: "Registration successful!" });
     } catch (error) {
         setMessage({ type: "error", text: error.message});
     }
  }
+
+ const notify = () =>
+     toast ("Signed Up Successfully !", {
+       position: "top-center",
+       type: "success",
+       autoClose: 5000,
+       hideProgressBar: false,
+       closeOnClick: false,
+       pauseOnHover: true,
+       draggable: true,
+       progress: undefined,
+       theme: "light",
+     });
 
   return (
     <div className={styles.container}>

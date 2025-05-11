@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import Hero from '../../components/hero/Hero'
 import DisplayFood from '../../components/displayFood/DisplayFood'
 import Menu from '../Menu/Menu'
@@ -12,6 +12,9 @@ function Home() {
     // Step 3: Use scrollIntoView to scroll to the Menu section
     menuRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
+  // useEffect(()=>{console.log(menuRef.current);
+  // },[menuRef])
 
   return (
     <>

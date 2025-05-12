@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import {  toast } from "react-toastify";
-import styles from "./Contact.module.css";
+import styles from "./contact.module.css";
 
 
 

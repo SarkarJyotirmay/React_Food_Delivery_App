@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { app } from "../../auth/firebase";
-import styles from "./Login.module.css";
+import styles from "./login.module.css";
 import { toast } from "react-toastify";
 
 const auth = getAuth(app);

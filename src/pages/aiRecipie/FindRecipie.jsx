@@ -1,64 +1,59 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
-import styles from './find_recipie.module.css'; // Import the CSS module
-
+import styles from './find_recipie.module.css';
 
 const FindRecipe = () => {
   const [dish, setDish] = useState("");
   const [recipe, setRecipe] = useState("");
   const [loading, setLoading] = useState(false);
-  const [lastCalled, setLastCalled] = useState(0); // For throttling
-  const apiKey2 = "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"
+  const debounceTimeout = useRef(null);
 
   const fetchRecipe = async () => {
-  if (!dish.trim()) return;
+    if (!dish.trim()) return;
 
-  const now = Date.now();
-  const cooldown = 5000;
+    setLoading(true);
+    setRecipe("");
 
-  if (now - lastCalled < cooldown) {
-    setRecipe("Please wait a few seconds before trying again.");
-    return;
-  }
-
-  setLastCalled(now);
-  setLoading(true);
-  setRecipe("");
-
-  try {
-    const response = await axios.post(
-      "https://api.openai.com/v1/chat/completions",
-      {
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "user",
-            content: `Give me a simple recipe for "${dish}". Include ingredients and steps.`,
-          },
-        ],
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_openAiApiKey}`,
-          "Content-Type": "application/json",
+    try {
+      const response = await axios.post(
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent", // ✅ matches your cURL
+        {
+          contents: [
+            {
+              parts: [
+                {
+                  text: `Give me a simple recipe for "${dish}". Include ingredients and steps.`,
+                },
+              ],
+            },
+          ],
         },
-      }
-    );
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          params: {
+            key: import.meta.env.VITE_geminiApiKey, // ✅ use same API key as in your cURL
+          },
+        }
+      );
 
-    const result = response.data.choices[0].message.content;
-    setRecipe(result);
-  } catch (err) {
-    if (err.response && err.response.status === 429) {
-      setRecipe("Rate limit hit. Retrying in 5 seconds...");
-      setTimeout(fetchRecipe, 5000);
-    } else {
-      setRecipe("Failed to fetch recipe. Please try again.");
+      const result = response.data.candidates?.[0]?.content?.parts?.[0]?.text;
+      setRecipe(result || "No recipe found. Please try a different dish.");
+    } catch (err) {
+      console.error(err);
+      setRecipe("❌ Failed to fetch recipe from Gemini API. Please check your API key and model.");
+    } finally {
+      setLoading(false);
     }
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
+  const handleClick = () => {
+    if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
+    debounceTimeout.current = setTimeout(() => {
+      fetchRecipe();
+    }, 800);
+  };
 
   return (
     <div className={styles.findRecipeContainer}>
@@ -71,7 +66,7 @@ const FindRecipe = () => {
         className={styles.findRecipeInput}
       />
       <button
-        onClick={fetchRecipe}
+        onClick={handleClick}
         disabled={loading}
         className={styles.findRecipeButton}
       >

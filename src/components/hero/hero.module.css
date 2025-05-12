@@ -1,108 +1,124 @@
 .hero {
-    width: 90%;
-    max-width: 1200px;
-    min-height: 300px;
-    margin: auto;
-    padding: 2rem;
-    border-radius: 1rem;
-    background: url("/hero_bg_2.avif") no-repeat center;
-    background-size: cover;
-    position: relative;
+  width: 90%;
+  max-width: 1200px;
+  min-height: 300px;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: url("/hero_bg_2.avif") no-repeat center/cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  animation: fade-in 2s ease-in;
+
+  .content {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  
-    .content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      width: 60%;
-      max-width: 600px;
-      /* color: #ffffff; */
-      color: #e2ea15;
-      animation-name: fade-in;
-      animation-duration: 3s;
-  
-      h1 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 700;
-        line-height: 1.2;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-      }
-  
-      p {
-        font-size: clamp(1rem, 2.5vw, 1.2rem);
-        line-height: 1.6;
-        color: #f0f0f0;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-      }
-  
-      button {
-        padding: 0.75rem 1.5rem;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 2px solid white;
-        border-radius: 0.3rem;
-        color: white;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.3s ease;
-  
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.3);
-          transform: translateY(-2px);
-        }
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 60%;
+    max-width: 600px;
+    color: #f5f5f5;
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      line-height: 1.6;
+      color: #f0f0f0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid white;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .go-to-menu-btn {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: white;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
       }
     }
-  
-      /* Tablet  */
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1.5rem;
-  
-      .content {
-        width: 100%;
-        max-width: none;
-  
-        h1 {
-          font-size: 2.2rem;
-        }
-  
-        p {
-          font-size: 1rem;
-        }
-      }
-    }
-  
-     /* Mobile */
-    @media screen and (max-width: 480px) {
-      padding: 1rem;
-  
-      .content {
-        gap: 1rem;
-  
-        h1 {
-          font-size: 1.8rem;
-        }
-  
-        p {
-          font-size: 0.95rem;
-        }
-  
-        button {
-          padding: 0.6rem 1.2rem;
-          font-size: 0.95rem;
-        }
+
+    .ai-recipie-btn {
+      background-color: #ff6347 !important; 
+      border-color: transparent;
+      color: white;
+
+      &:hover {
+        background-color: #e5533d !important;
       }
     }
   }
-  
-  /* fade in */
-  @keyframes fade-in {
-    from{
-        opacity: 0;
+}
+
+ /* Fade-in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ /* Tablet */
+@media screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+
+  .hero .content {
+    width: 100%;
+
+    h1 {
+      font-size: 2rem;
     }
-    to{
-        opacity: 1;
+
+    p {
+      font-size: 1rem;
     }
   }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero .content {
+    gap: 1rem;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  }
+}

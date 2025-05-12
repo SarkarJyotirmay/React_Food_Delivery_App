@@ -15,7 +15,7 @@ function DisplayFood() {
   }
 
   let searchedFoods = initState.foods.filter((obj) =>
-    obj.name.toLowerCase().includes(searchQuery)
+    obj.name.toLowerCase().includes(searchQuery.toLocaleLowerCase())
   );
   return (
     <>

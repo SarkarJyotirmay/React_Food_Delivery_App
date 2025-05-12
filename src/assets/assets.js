@@ -159,7 +159,7 @@ export const menu_list = [
       menu_image: menu_12
     },
     {
-      menu_name: "Biryani",
+      menu_name: "Biriyani",
       menu_image: menu_13
     },
     // {
@@ -538,27 +538,27 @@ export const food_list = [
 },
 {
     _id: "49",
-    name: "Chicken Biryani",
+    name: "Chicken Biriyani",
     image: food_49,
     price: 12,
     description: "Aromatic basmati rice cooked with tender chicken and spices.",
-    category: "Biryani"
+    category: "Biriyani"
 },
 {
     _id: "50",
-    name: "Veg Biryani",
+    name: "Veg Biriyani",
     image: food_50,
     price: 10,
     description: "Flavorful rice dish with mixed vegetables and traditional herbs.",
-    category: "Biryani"
+    category: "Biriyani"
 },
 {
     _id: "51",
-    name: "Mutton Biryani",
+    name: "Mutton Biriyani",
     image: food_51,
     price: 14,
     description: "Succulent mutton pieces slow-cooked with saffron rice and spices.",
-    category: "Biryani"
+    category: "Biriyani"
 }
 
 

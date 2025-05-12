@@ -31,7 +31,11 @@ function Login() {
       );
       const user = userDetails.user;
       setMessage({ type: "success", text: "Login successful!" });
-      notify()
+      setForm({
+        email: "",
+        password: "",
+      });
+      notify();
       navigate("/"); // Redirect after login
     } catch (error) {
       setMessage({ type: "error", text: error.message });
@@ -39,17 +43,17 @@ function Login() {
   }
 
   const notify = () =>
-       toast ("Logged-in Successfully !", {
-         position: "top-center",
-         type: "success",
-         autoClose: 5000,
-         hideProgressBar: false,
-         closeOnClick: false,
-         pauseOnHover: true,
-         draggable: true,
-         progress: undefined,
-         theme: "light",
-       });
+    toast("Logged-in Successfully !", {
+      position: "top-center",
+      type: "success",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   return (
     <div className={styles.container}>

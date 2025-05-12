@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "../../auth/firebase";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import styles from "./sign_up.module.css"
+import styles from "./sign_up.module.css";
 import { toast } from "react-toastify";
 
 const auth = getAuth(app);
@@ -14,41 +14,45 @@ function SignUp() {
   });
   const [message, setMessage] = useState({ type: "", text: "" });
 
-  function handleChange(e){
-    const {name, value} = e.target
-    setForm((prev)=>{
-        return {...prev, [name] : value}
-    })
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm((prev) => {
+      return { ...prev, [name]: value };
+    });
   }
 
- async function handleSubmit(e){
-    e.preventDefault()
+  async function handleSubmit(e) {
+    e.preventDefault();
     try {
-        const userDetails = await createUserWithEmailAndPassword(
+      const userDetails = await createUserWithEmailAndPassword(
         auth,
         form.email,
         form.password
-    )
-    const user = userDetails.user
-    notify()
-    setMessage({ type: "success", text: "Registration successful!" });
+      );
+      const user = userDetails.user;
+      notify();
+      setForm({
+        email: "",
+        password: "",
+      });
+      setMessage({ type: "success", text: "Registration successful!" });
     } catch (error) {
-        setMessage({ type: "error", text: error.message});
+      setMessage({ type: "error", text: error.message });
     }
- }
+  }
 
- const notify = () =>
-     toast ("Signed Up Successfully !", {
-       position: "top-center",
-       type: "success",
-       autoClose: 5000,
-       hideProgressBar: false,
-       closeOnClick: false,
-       pauseOnHover: true,
-       draggable: true,
-       progress: undefined,
-       theme: "light",
-     });
+  const notify = () =>
+    toast("Signed Up Successfully !", {
+      position: "top-center",
+      type: "success",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
   return (
     <div className={styles.container}>

@@ -44,12 +44,7 @@ function SingleFoodItem({ obj }) {
           />
         </div>
       ) : (
-        // <img
-        //   src={assets.add_icon_white}
-        //   alt=""
-        //   className={styles.add}
-        //   onClick={() => dispatch(addFirst(obj))}
-        // />
+       
         <button className={styles.add} onClick={() => dispatch(addFirst(obj))}>
           Add to Cart
         </button>

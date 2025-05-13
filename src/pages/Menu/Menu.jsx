@@ -43,7 +43,7 @@ function Menu() {
   return (
     <>
       <div className={styles.menu}>
-        <h1>We Serves 🍜</h1>
+        <h1>We Serve 🍜</h1>
 
         <div className={styles["menu-list"]}>
           <button onClick={() => goToPrevious()}>

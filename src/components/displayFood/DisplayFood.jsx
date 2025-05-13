@@ -10,6 +10,7 @@ function DisplayFood() {
   const dispatch = useDispatch();
   console.log(initState);
   const [searchQuery, setSearchQuery] = useState("");
+  
   function handleSearch(query) {
     setSearchQuery(query);
   }

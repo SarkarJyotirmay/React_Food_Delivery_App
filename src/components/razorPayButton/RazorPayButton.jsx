@@ -1,47 +1,56 @@
 import { useCallback } from "react";
-import { useSelector } from "react-redux";
 
-const RazorPayButton = () => {
-  const cart = useSelector((state) => state.cartReducers);
-  const amount = () => {
-    return cart.reduce((acc, curr) => acc + curr.price*curr.quantity, 0);
-  };
+const RazorPayButton = ({ formData, isFormValid, amount, cart }) => {
   const handlePayment = useCallback(() => {
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.async = true;
+    if (!isFormValid) {
+      alert("Please fill in all the fields.");
+      return;
+    }
 
-    script.onload = () => {
-      const options = {
-        key: import.meta.env.VITE_razorPayApiKey, // Replace with your Razorpay Test Key ID
-        amount: amount() * 100, // amount in paise (₹500)
-        currency: "USD",
-        name: "Jyotirmay Sarkar",
-        description: "Test Transaction",
-        handler: function (response) {
-          alert("Payment successful!");
-          console.log("Razorpay Response:", response);
-        },
-        prefill: {
-          name: "John Doe",
-          email: "xyz@.com",
-          contact: "98400183830",
-        },
-        theme: {
-          color: "#0a6bff",
-        },
-      };
+    // Check if Razorpay script is already added
+    const existingScript = document.querySelector(
+      'script[src="https://checkout.razorpay.com/v1/checkout.js"]'
+    );
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
 
-      const rzp = new window.Razorpay(options);
-      rzp.open();
+      script.onload = () => triggerRazorpay();
+      script.onerror = () => alert("Failed to load Razorpay SDK");
+
+      document.body.appendChild(script);
+    } else {
+      triggerRazorpay();
+    }
+  }, [formData, isFormValid, amount, cart]);
+
+  const triggerRazorpay = () => {
+    const options = {
+      key: import.meta.env.VITE_razorPayApiKey, // Use environment variable
+      amount: amount * 100, // Convert to paise
+      currency: "USD",
+      name: "Jyotirmay Sarkar",
+      description: "DineDash Order Payment",
+      handler: function (response) {
+        alert("Payment successful!");
+        console.log("Payment ID:", response.razorpay_payment_id);
+        console.log("Customer Info:", formData);
+        console.log("Cart Items:", cart);
+      },
+      prefill: {
+        name: formData.name || "Guest",
+        email: formData.email || "not@provided.com",
+        contact: "0000000000", // Optional: you can add a phone field in formData
+      },
+      theme: {
+        color: "#0a6bff",
+      },
     };
 
-    script.onerror = () => {
-      alert("Failed to load Razorpay SDK");
-    };
-
-    document.body.appendChild(script);
-  }, []);
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
 
   return (
     <button
@@ -54,9 +63,10 @@ const RazorPayButton = () => {
         border: "none",
         borderRadius: "6px",
         cursor: "pointer",
+        marginTop: "1rem",
       }}
     >
-      Pay
+      Pay ${amount}
     </button>
   );
 };

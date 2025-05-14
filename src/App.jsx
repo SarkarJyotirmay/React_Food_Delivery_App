@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import useAuthListener from "./auth/useAuthListener";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import FindRecipe from "./pages/aiRecipie/FindRecipie";
+import Checkout from "./pages/CheckOut/CheckOut";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             <Cart />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />
       },
       {
         path: "findrecipie",

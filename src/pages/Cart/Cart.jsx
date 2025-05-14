@@ -6,6 +6,8 @@ import CartItem from "../../components/cartItem/CartItem";
 import RazorPayButton from "../../components/razorPayButton/RazorPayButton";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+
 
 function Cart() {
   const dispatch = useDispatch();
@@ -65,7 +67,9 @@ function Cart() {
                 >
                   Clear Cart
                 </button>
-                <RazorPayButton />
+                <button>
+                  <Link to="/checkout">Chekout</Link>
+                </button>
               </div>
             </div>
           </>
